@@ -34,8 +34,8 @@ test:
     - 50
   device: cuda:0
   padding: true
-  dataset path: '/content/drive/MyDrive/archivos RDUNeT/Datasets/Test'
-  results path: '/content/drive/MyDrive/archivos RDUNeT/Results'
-  pretrained models path: '/content/drive/MyDrive/archivos RDUNeT/Pretrained'
+  dataset path: '/content/drive/MyDrive/archivos_RDUNeT/Datasets/Test'
+  results path: '/content/drive/MyDrive/archivos_RDUNeT/Results'
+  pretrained models path: '/content/drive/MyDrive/archivos_RDUNeT/Pretrained'
   save images: true
 ...
