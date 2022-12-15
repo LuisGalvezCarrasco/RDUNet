@@ -59,10 +59,10 @@ def main():
         train_files = list(map(lambda file: join(train_params['dataset path'], file), raw_train_files))
         val_files = list(map(lambda file: join(val_params['dataset path'], file), raw_val_files))
 
-    training_transforms = transforms.Compose([
-        RandomHorizontalFlip(),
-        RandomVerticalFlip(),
-        RandomRot90()
+    training_transforms = transforms.Compose([ # luis: I comment these 3 to avoid classical data augmentation
+        #RandomHorizontalFlip(),
+        #RandomVerticalFlip(),
+        #RandomRot90()
     ])
 
     # Predefined noise level
