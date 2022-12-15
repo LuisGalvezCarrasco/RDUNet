@@ -61,18 +61,22 @@ def predict(model, noisy_dataset, gt_dataset, device, padding, n_channels, resul
 
     if results_path is not None:
         for i in range(n_images):
-            y_hat = (255 * y_pred[i]).astype('uint8')
-            y_hat_ens = (255 * y_pred_ens[i]).astype('uint8')
+            y_hat = y_pred[i] #luis: i add this to preserve float32
+            #y_hat = (255 * y_pred[i]).astype('uint8') #luis: i comment this to preserve float32
+            y_hat_ens = y_pred_ens[i] #luis: i add this to preserve float 32
+            #y_hat_ens = (255 * y_pred_ens[i]).astype('uint8')  #luis: i comment this to preserve float32
 
             y_hat = np.squeeze(y_hat)
             y_hat_ens = np.squeeze(y_hat_ens)
 
             os.makedirs(results_path, exist_ok=True)
 
-            name = os.path.join(results_path, '{}_{:.4f}_{:.4f}.png'.format(i, psnr_list[i], ssim_list[i]))
+            name = os.path.join(results_path, '{}_{:.4f}_{:.4f}.npy'.format(i, psnr_list[i], ssim_list[i])) #luis: i add this to preserve float32
+            #name = os.path.join(results_path, '{}_{:.4f}_{:.4f}.png'.format(i, psnr_list[i], ssim_list[i])) #luis: i comment this to preserve float32
             io.imsave(name, y_hat)
 
-            name = os.path.join(results_path, '{}_{:.4f}_{:.4f}_ens.png'.format(i, ens_psnr_list[i], ens_ssim_list[i]))
+            name = os.path.join(results_path, '{}_{:.4f}_{:.4f}_ens.npy'.format(i, ens_psnr_list[i], ens_ssim_list[i])) #luis: i add this to preserve float32
+            #name = os.path.join(results_path, '{}_{:.4f}_{:.4f}_ens.png'.format(i, ens_psnr_list[i], ens_ssim_list[i])) #luis: i comment this to preserve float32
             io.imsave(name, y_hat_ens)
 
     return np.mean(psnr_list), np.mean(ssim_list), np.mean(ens_psnr_list), np.mean(ens_ssim_list)
