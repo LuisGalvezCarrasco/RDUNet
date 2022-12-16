@@ -4,13 +4,13 @@ model:
   channels: 3 
 train:
   noise level: 50
-  patch size: 64 # Luis: it was 64 for high resolution images 2k
+  patch size: 16 # Luis: it was 64 for high resolution images 2k {would be good idea to try 2,4,8,16,31,64}
   batch size: 16
   learning rate: 1.e-4
   weight decay: 1.e-5
   scheduler gamma: 0.5
   scheduler step: 3
-  epochs: 21
+  epochs: 21 # this is x10 (210 epochs in total if epochs = 21)
   dataset splits: 10
   device: cuda:0
   multi gpu: false

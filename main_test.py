@@ -91,7 +91,9 @@ if __name__ == '__main__':
     n_channels = model_params['channels']
 
     if n_channels == 3:
-        model_path = join(test_params['pretrained models path'], 'model_color.pth')
+        model_path = join(test_params['pretrained models path'], 'model_color-010-4.4978e-02-20.6622-0.4307.pth')
+        #model_path = join(test_params['pretrained models path'], 'model_color.pth')
+
         noisy_datasets = ['noisy_cbsd68_']  # Also tested in Kodak24 and Urban100 datasets.
         gt_datasets = ['cbsd68_label']
 
