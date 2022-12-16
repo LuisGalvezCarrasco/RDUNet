@@ -73,12 +73,13 @@ def predict(model, noisy_dataset, gt_dataset, device, padding, n_channels, resul
 
             name = os.path.join(results_path, '{}_{:.4f}_{:.4f}.npy'.format(i, psnr_list[i], ssim_list[i])) #luis: i add this to preserve float32
             #name = os.path.join(results_path, '{}_{:.4f}_{:.4f}.png'.format(i, psnr_list[i], ssim_list[i])) #luis: i comment this to preserve float32
-            io.imsave(name, y_hat)
+            #io.imsave(name, y_hat)
+            np.save(name,y_hat)
 
             name = os.path.join(results_path, '{}_{:.4f}_{:.4f}_ens.npy'.format(i, ens_psnr_list[i], ens_ssim_list[i])) #luis: i add this to preserve float32
             #name = os.path.join(results_path, '{}_{:.4f}_{:.4f}_ens.png'.format(i, ens_psnr_list[i], ens_ssim_list[i])) #luis: i comment this to preserve float32
-            io.imsave(name, y_hat_ens)
-
+            #io.imsave(name, y_hat_ens)
+            np.save(name, y_hat_ens)
     return np.mean(psnr_list), np.mean(ssim_list), np.mean(ens_psnr_list), np.mean(ens_ssim_list)
 
 
@@ -91,7 +92,7 @@ if __name__ == '__main__':
     n_channels = model_params['channels']
 
     if n_channels == 3:
-        model_path = join(test_params['pretrained models path'], 'model_color-010-4.4978e-02-20.6622-0.4307.pth')
+        model_path = join(test_params['pretrained models path'], 'model_color-010-4.4978e-02-20.6622-0.4307.pth') #luis:my own pre trained  weights
         #model_path = join(test_params['pretrained models path'], 'model_color.pth')
 
         noisy_datasets = ['noisy_cbsd68_']  # Also tested in Kodak24 and Urban100 datasets.
