@@ -15,7 +15,7 @@ train:
   device: cuda:0
   multi gpu: false
   workers: 10
-  dataset path: '/content/drive/MyDrive/archivos_RDUNeT/Datasets/Test'
+  dataset path: '/content/drive/MyDrive/archivos_RDUNeT/Datasets/Train'
   checkpoint path: 'Checkpoints'
 val:
   noise levels:
@@ -26,7 +26,7 @@ val:
   batch size: 8
   frequency: 1
   workers: 24
-  dataset path: '/content/drive/MyDrive/archivos_RDUNeT/Datasets/Test'
+  dataset path: '/content/drive/MyDrive/archivos_RDUNeT/Datasets/Val'
 test:
   noise levels:
     - 10
